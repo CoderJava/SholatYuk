@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Sholat Yuk</string>
+    <string name="image_view_background_splash_screen">image view background splash screen</string>
+    <string name="shalat">Shalat</string>
+    <string name="yuk">Yuk</string>
+</resources>
