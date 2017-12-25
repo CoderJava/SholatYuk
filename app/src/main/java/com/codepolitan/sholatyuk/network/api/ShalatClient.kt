@@ -22,7 +22,8 @@ object ShalatClient {
     val okhttpClient = OkHttpClient()
 
     /**
-     * Get City Data from API
+     * @description Get City Data from API
+     * @return {Deffered<DataKota>} Return value DataKota from API
      */
     fun getCityData(): Deferred<DataKota> {
         return async(CommonPool) {
@@ -35,6 +36,11 @@ object ShalatClient {
         }
     }
 
+    /**
+     * @description Get Prayer Schedule Data from API
+     * @param {Int} id Unique id for each city
+     * @return {Deferred<DataJadwalSholat>} Return value DataJadwalSholat from API
+     */
     fun getPrayerScheduleData(id: Int): Deferred<DataJadwalSholat> {
         return async(CommonPool) {
             var url = BuildConfig.BASE_URL + BuildConfig.API_KEY + "/jadwal-sholat"
