@@ -122,7 +122,7 @@ class DatabaseHelper(context: Context?, name: String?, factory: SQLiteDatabase.C
         }
     }
 
-    fun getDataCity(): Int {
+    fun countDataCity(): Int {
         var itemCount: Int
         try {
             val sqliteDatabase = writableDatabase
@@ -137,6 +137,30 @@ class DatabaseHelper(context: Context?, name: String?, factory: SQLiteDatabase.C
             throw e
         }
         return itemCount
+    }
+
+    fun getDataCity(): List<Data> {
+        val listDataCity = ArrayList<Data>()
+        try {
+            val sqliteDatabase = writableDatabase
+            val cursor = sqliteDatabase.rawQuery(
+                    CITY_TABLE_SELECT,
+                    null,
+                    null
+            )
+            if (cursor.count > 0) {
+                while (cursor.moveToNext()) {
+                    val dataKota = Data(
+                            id = cursor.getInt(cursor.getColumnIndex(CITY_TABLE_NAME_COLUMN_ID)).toString(),
+                            namaKota = cursor.getString(cursor.getColumnIndex(CITY_TABLE_NAME_COLUMN_CITY_NAME))
+                    )
+                    listDataCity.add(dataKota)
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return listDataCity
     }
 
 }
