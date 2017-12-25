@@ -38,7 +38,7 @@ object ShalatClient {
 
     /**
      * @description Get Prayer Schedule Data from API
-     * @param {Int} id Unique id for each city
+     * @param id {Int} Unique id for each city
      * @return {Deferred<DataJadwalSholat>} Return value DataJadwalSholat from API
      */
     fun getPrayerScheduleData(id: Int): Deferred<DataJadwalSholat> {
