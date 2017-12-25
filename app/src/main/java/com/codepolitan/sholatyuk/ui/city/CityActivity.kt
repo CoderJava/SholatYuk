@@ -32,6 +32,9 @@ class CityActivity : AppCompatActivity() {
         doLoadData()
     }
 
+    /**
+     * @desription Load data from database local and setup adapter recyclerview
+     */
     private fun doLoadData() {
         val listDataCity = databaseHelper.getDataCity()
         recycler_view_data_city_activity_city.let {
@@ -53,6 +56,9 @@ class CityActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * @description Initialize toolbar
+     */
     private fun initToolbar() {
         setSupportActionBar(toolbar_activity_city)
         supportActionBar?.let {
@@ -61,6 +67,11 @@ class CityActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * @description On options item selected in toolbar
+     * @param item {MenuItem} item selected in toolbar
+     * @return {Boolean} return true or false when selected item in toolbar
+     */
     override fun onOptionsItemSelected(item: MenuItem?): Boolean =
             item?.itemId.let {
                 return when (it) {
