@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    tools:context="com.codepolitan.sholatyuk.ui.home.HomeActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_activity_home"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <RelativeLayout
+        android:id="@+id/relative_layout_container_contet_activity_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_activity_home"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="0dp"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:background="@drawable/background_white_rouned"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <ImageView
+            android:id="@+id/image_view_location_city_activity_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:contentDescription="@string/image_view_location_city"
+            android:src="@drawable/ic_location_city_black_24dp" />
+
+        <TextView
+            android:id="@+id/text_view_label_location_city_activity_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/image_view_location_city_activity_home"
+            android:text="@string/location_city"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/text_view_value_location_city_activity_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_label_location_city_activity_home"
+            android:layout_toEndOf="@+id/image_view_location_city_activity_home"
+            android:text="@string/choose_location"
+            android:textSize="16sp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_submit_activity_home"
+            android:text="@string/submit"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:layout_below="@+id/text_view_value_location_city_activity_home"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_button_color_accent_rounded" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
