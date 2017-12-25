@@ -1,12 +1,13 @@
 package com.codepolitan.sholatyuk.ui.splashscreen
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import com.codepolitan.sholatyuk.R
 import com.codepolitan.sholatyuk.db.DatabaseHelper
 import com.codepolitan.sholatyuk.experimental.Android
 import com.codepolitan.sholatyuk.network.api.ShalatClient
+import com.codepolitan.sholatyuk.ui.home.HomeActivity
 import kotlinx.coroutines.experimental.launch
 
 class SplashScreenActivity : AppCompatActivity() {
@@ -29,14 +30,15 @@ class SplashScreenActivity : AppCompatActivity() {
 
     private fun doLoadData() {
         launch(Android) {
-            val itemCountDataCityLocal = databaseHelper.getDataCity()
+            val itemCountDataCityLocal = databaseHelper.countDataCity()
             val resultDataKota = ShalatClient.getCityData().await()
+            val intentHomeActivity = Intent(this@SplashScreenActivity, HomeActivity::class.java)
             if (itemCountDataCityLocal == resultDataKota.count) {
-                // todo: do something in here
+                startActivity(intentHomeActivity)
             } else {
                 databaseHelper.insertDataCity(resultDataKota.data)
+                startActivity(intentHomeActivity)
             }
-
         }
     }
 }
