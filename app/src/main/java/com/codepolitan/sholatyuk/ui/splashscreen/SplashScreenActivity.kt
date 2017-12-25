@@ -36,6 +36,7 @@ class SplashScreenActivity : AppCompatActivity() {
             if (itemCountDataCityLocal == resultDataKota.count) {
                 startActivity(intentHomeActivity)
             } else {
+                databaseHelper.deleteDataCity()
                 databaseHelper.insertDataCity(resultDataKota.data)
                 startActivity(intentHomeActivity)
             }
