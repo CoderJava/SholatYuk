@@ -3,4 +3,20 @@
     <string name="image_view_background_splash_screen">image view background splash screen</string>
     <string name="shalat">Shalat</string>
     <string name="yuk">Yuk</string>
+    <string name="image_view_location_city">image view location city</string>
+    <string name="location_city">Location City</string>
+    <string name="medan">Medan</string>
+    <string name="submit">Submit</string>
+    <string name="choose_location">Choose location</string>
+    <string name="please_wait">Please wait</string>
+    <string name="indonesia">Indonesia</string>
+    <string name="mon_august_29_2015">Mon, August 29, 2015</string>
+    <string name="please_choose_location">Please, choose location</string>
+    <string name="shubuh">Shubuh</string>
+    <string name="esimated_time_5_hours">Esimated time: 5 hours</string>
+    <string name="_00">:00</string>
+    <string name="_2">2</string>
+    <string name="image_view_icon_circle">image view icon circle</string>
+    <string name="am">am</string>
+    <string name="pm">pm</string>
 </resources>
