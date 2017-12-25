@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relative_layout_container_item_prayer_schedule"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin">
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:background="@android:color/darker_gray" />
+
+    <ImageView
+        android:id="@+id/image_view_circle_item_prayer_schedule"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="11dp"
+        android:contentDescription="@string/image_view_icon_circle"
+        android:src="@drawable/ic_circle_blue" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/image_view_circle_item_prayer_schedule">
+
+        <TextView
+            android:id="@+id/text_view_prayer_name_item_prayer_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/shubuh"
+            android:textColor="#212121"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/text_view_estimated_time_item_prayer_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_prayer_name_item_prayer_schedule"
+            android:text="@string/esimated_time_5_hours" />
+
+        <TextView
+            android:id="@+id/text_view_minute_item_prayer_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:gravity="top"
+            android:text="@string/_00"
+            android:textColor="@android:color/darker_gray" />
+
+        <TextView
+            android:id="@+id/text_view_hour_item_prayer_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/text_view_estimated_time_item_prayer_schedule"
+            android:layout_toStartOf="@+id/text_view_minute_item_prayer_schedule"
+            android:gravity="bottom|end"
+            android:text="@string/_2"
+            android:textColor="#212121"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/text_view_format_hour_item_prayer_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_prayer_name_item_prayer_schedule"
+            android:layout_toStartOf="@+id/text_view_minute_item_prayer_schedule"
+            android:text="@string/am"
+            android:textColor="#212121" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

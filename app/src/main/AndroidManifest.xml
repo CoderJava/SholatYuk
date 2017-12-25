@@ -18,6 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.home.HomeActivity" />
+        <activity android:name=".ui.city.CityActivity" />
+        <activity android:name=".ui.schedule.PrayerScheduleActivity"></activity>
     </application>
 
 </manifest>
