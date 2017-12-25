@@ -23,6 +23,9 @@ class PrayerScheduleActivity : AppCompatActivity() {
         doLoadData()
     }
 
+    /**
+     * @description Setup data prayer schedule and setup adapter recyclerview
+     */
     private fun doLoadData() {
         val bundle = intent.extras
         val dataPrayer = bundle.get("dataPrayer") as DataJadwalSholat
@@ -66,6 +69,9 @@ class PrayerScheduleActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * @description Initialize toolbar
+     */
     private fun initToolbar() {
         setSupportActionBar(toolbar_activity_prayer_schedule)
         supportActionBar?.let {
@@ -74,6 +80,11 @@ class PrayerScheduleActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * @description On options item selected
+     * @param item {MenuItem} menu item in toolbar
+     * @return {Boolean} return true or false when selected menu item
+     */
     override fun onOptionsItemSelected(item: MenuItem?): Boolean =
             item?.itemId.let {
                 return when (it) {
