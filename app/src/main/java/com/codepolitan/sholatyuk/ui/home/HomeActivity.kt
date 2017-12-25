@@ -29,16 +29,26 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         initToolbar()
     }
 
+    /**
+     * @description Initialize toolbar
+     */
     private fun initToolbar() {
         setSupportActionBar(toolbar_activity_home)
         supportActionBar?.title = getString(R.string.app_name)
     }
 
+    /**
+     * @description Initialize all listener view
+     */
     private fun initListener() {
         text_view_value_location_city_activity_home.setOnClickListener(this)
         button_submit_activity_home.setOnClickListener(this)
     }
 
+    /**
+     * @description override listener on click
+     * @param view {View} view for on click
+     */
     override fun onClick(view: View?) {
         view?.id.let {
             when (it) {
@@ -63,6 +73,9 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    /**
+     * @description Load data prayer schedule
+     */
     private fun doLoadDataPrayerSchedule() {
         val progressDialog = ProgressDialog(this)
         progressDialog.let {
@@ -86,6 +99,12 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    /**
+     * @description Activity result from another activity
+     * @param requestCode {Int} request code when start other activity
+     * @param resultCode {Int} result code when back to this activity
+     * @param data {Intent} Intent data from another activity
+     */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         when (resultCode) {
             Activity.RESULT_OK -> {
