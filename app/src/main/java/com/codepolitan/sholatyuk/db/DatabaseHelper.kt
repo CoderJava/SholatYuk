@@ -12,11 +12,11 @@ import java.sql.SQLException
  */
 class DatabaseHelper(context: Context?, name: String?, factory: SQLiteDatabase.CursorFactory?, version: Int) : SQLiteOpenHelper(context, name, factory, version) {
 
+    private val TAG = javaClass.simpleName
     companion object {
         val DATABASE_NAME = "shalatyuk.db"
         val DATABASE_VERSION = 1
     }
-    private val TAG = javaClass.simpleName
 
     private val CITY_TABLE_NAME = "kota"
     private val CITY_TABLE_NAME_COLUMN_ID = "id"
@@ -28,6 +28,10 @@ class DatabaseHelper(context: Context?, name: String?, factory: SQLiteDatabase.C
             ")"
     private val CITY_TABLE_DROP = "drop table if exists $CITY_TABLE_NAME"
 
+    /**
+     * @description For create database
+     * @param sqliteDatabase {SQLiteDatabase} object SQLiteDatabase
+     */
     override fun onCreate(sqliteDatabase: SQLiteDatabase?) {
         try {
             sqliteDatabase?.execSQL(CITY_TABLE_CREATE)
@@ -36,6 +40,12 @@ class DatabaseHelper(context: Context?, name: String?, factory: SQLiteDatabase.C
         }
     }
 
+    /**
+     * @description For update database
+     * @param sqliteDatabase {SQLiteDatabase} object SQLiteDatabase
+     * @param oldVersion {Int} old version SQLitedatabase
+     * @param newVersion {Int} new version SQLiteDatabase
+     */
     override fun onUpgrade(sqliteDatabase: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         try {
             sqliteDatabase?.execSQL(CITY_TABLE_DROP)
@@ -46,7 +56,9 @@ class DatabaseHelper(context: Context?, name: String?, factory: SQLiteDatabase.C
     }
 
     /**
-     * Insert data city to city_table
+     * @description Insert data city to city_table
+     * @param data {Data} value of Data city
+     * @return {Long} return value row ID if new inserted or -1 if an error occurred
      */
     fun insertDataCity(data: Data): Long {
         try {
@@ -65,7 +77,9 @@ class DatabaseHelper(context: Context?, name: String?, factory: SQLiteDatabase.C
     }
 
     /**
-     * Insert list data city to city_table
+     * @description Insert list data city to city_table
+     * @param listData {List<Data>} values of Data city
+     * @return {Int} return value 1 if success or something else
      */
     fun insertDataCity(listData: List<Data>): Int {
         try {
@@ -91,7 +105,9 @@ class DatabaseHelper(context: Context?, name: String?, factory: SQLiteDatabase.C
     }
 
     /**
-     * Delete data city in city_table by id
+     * @description Delete data city in city_table by id
+     * @param id {Int} ID of city
+     * @return {Int} the number of row
      */
     fun deleteDataCityById(id: Int): Int {
         try {
@@ -107,7 +123,8 @@ class DatabaseHelper(context: Context?, name: String?, factory: SQLiteDatabase.C
     }
 
     /**
-     * Delete all data city in city_table
+     * @description Delete all data city in city_table
+     * @return {Int} return the number of row affected
      */
     fun deleteDataCity(): Int {
         try {
@@ -122,8 +139,12 @@ class DatabaseHelper(context: Context?, name: String?, factory: SQLiteDatabase.C
         }
     }
 
+    /**
+     * @description count item data city in city_table
+     * @return {Int} return count value item data city in city_table
+     */
     fun countDataCity(): Int {
-        var itemCount: Int
+        val itemCount: Int
         try {
             val sqliteDatabase = writableDatabase
             val cursor = sqliteDatabase.rawQuery(
@@ -132,6 +153,7 @@ class DatabaseHelper(context: Context?, name: String?, factory: SQLiteDatabase.C
                     null
             )
             itemCount = cursor.count
+            cursor.close()
         } catch (e: Exception) {
             e.printStackTrace()
             throw e
@@ -139,6 +161,10 @@ class DatabaseHelper(context: Context?, name: String?, factory: SQLiteDatabase.C
         return itemCount
     }
 
+    /**
+     * @description Get data city in city_table
+     * @return {List<Data>} return list data city from city_table
+     */
     fun getDataCity(): List<Data> {
         val listDataCity = ArrayList<Data>()
         try {
@@ -157,6 +183,7 @@ class DatabaseHelper(context: Context?, name: String?, factory: SQLiteDatabase.C
                     listDataCity.add(dataKota)
                 }
             }
+            cursor.close()
         } catch (e: Exception) {
             e.printStackTrace()
         }
