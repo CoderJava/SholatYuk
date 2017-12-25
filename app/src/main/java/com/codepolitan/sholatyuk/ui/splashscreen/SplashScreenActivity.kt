@@ -28,11 +28,15 @@ class SplashScreenActivity : AppCompatActivity() {
         doLoadData()
     }
 
+    /**
+     * @description Load data from API and save it to local database
+     */
     private fun doLoadData() {
         launch(Android) {
             val itemCountDataCityLocal = databaseHelper.countDataCity()
             val resultDataKota = ShalatClient.getCityData().await()
             val intentHomeActivity = Intent(this@SplashScreenActivity, HomeActivity::class.java)
+            intentHomeActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
             if (itemCountDataCityLocal == resultDataKota.count) {
                 startActivity(intentHomeActivity)
             } else {
